@@ -1,0 +1,5 @@
+Q3 — ModuleNotFoundError: Three Causes
+#	Cause	Diagnostic Command	Fix
+1	numpy installed in a different environment or globally, not in the active venv	which python && which pip	Activate your venv first, then: pip install numpy
+2	Running python but pip installed into a different interpreter	python -c "import sys; print(sys.executable)"	Match the python binary to the one in your venv
+3	VS Code / IDE is using system Python, not the venv interpreter	Ctrl+Shift+P → Python: Select Interpreter	Choose the venv path (e.g. ./onboarding_env/bin/python)
