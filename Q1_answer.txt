@@ -1,0 +1,13 @@
+Q1 — Virtual Environments Explained
+=====================================
+
+A virtual environment is an isolated Python installation created specifically for
+a single project, containing its own packages and dependencies completely separate
+from other projects on the same machine. Developers use virtual environments to
+avoid version conflicts — for example, Project A may need requests==2.28 while
+Project B requires requests==2.31, and without isolation these would clash.
+Without virtual environments, installing or upgrading a package for one project
+can silently break another project that depended on a different version of the
+same library. A good analogy is that each project gets its own toolbox: you can
+add, remove, or upgrade tools in one box freely, and it never affects the tools
+in any other box on your shelf.

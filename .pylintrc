@@ -1,0 +1,76 @@
+# ==============================================================================
+# .pylintrc — Beginner-Friendly AI/ML Python Project Configuration
+#
+# AI PROMPT USED TO GENERATE THIS FILE (Part D, Step 1):
+# "Generate a .pylintrc configuration file tailored for a beginner-friendly
+#  AI/ML Python project. The project uses numpy, pandas, and scikit-learn.
+#  The rules should help beginners learn good habits without being too strict.
+#  Explain each major section briefly."
+#
+# Generated with: Claude (claude-3-5-sonnet) | Reviewed and edited manually.
+# ==============================================================================
+
+[MASTER]
+# Parallelise linting — use all available CPU cores for speed
+jobs=0
+
+# Allow these packages to be imported without error (C extensions)
+extension-pkg-allow-list=numpy,pandas,sklearn
+
+[MESSAGES CONTROL]
+# --- Disabled rules ---
+# These rules are too strict for beginners and can cause frustration without
+# teaching real habits:
+#
+#   C0114 - missing-module-docstring: Not every small script needs a module docstring
+#   C0415 - import-not-at-top: Sometimes conditional imports are needed (e.g. optional deps)
+#   R0903 - too-few-public-methods: Data classes naturally have few methods
+#   W0212 - protected-access: Beginners often access _internals while learning sklearn APIs
+#   E1101 - no-member: numpy/pandas dynamic attributes confuse pylint -- generates false positives
+#   W0611 - unused-import: Common when exploring / prototyping in notebooks converted to .py
+#   R0801 - duplicate-code: Not useful for single-file beginner scripts
+disable=
+    C0114,
+    C0415,
+    R0903,
+    W0212,
+    E1101,
+    R0801
+
+[FORMAT]
+# Max line length — 88 matches Black's default, a good modern standard
+max-line-length=88
+
+# Indentation: 4 spaces (PEP 8 standard)
+indent-string='    '
+
+[BASIC]
+# Naming conventions — enforce snake_case for variables, functions, and modules
+variable-naming-style=snake_case
+function-naming-style=snake_case
+method-naming-style=snake_case
+module-naming-style=snake_case
+
+# Allow short single-letter variable names (common in ML: X, y, i, n)
+good-names=i,j,k,n,X,y,df,ax,lr,db,ex,_
+
+[DESIGN]
+# Reasonable limits for beginners — strict enough to encourage modular code
+max-args=8
+max-locals=20
+max-returns=5
+max-branches=12
+max-statements=50
+max-bool-expr=5
+
+[SIMILARITIES]
+# Minimum number of lines shared between files to trigger duplicate-code warning
+min-similarity-lines=8
+
+[TYPECHECK]
+# Suppress false positives for numpy/pandas/sklearn dynamic attributes
+generated-members=numpy.*,pandas.*,sklearn.*
+
+[REPORTS]
+# Show a short summary score at the end — motivating for beginners
+score=yes
